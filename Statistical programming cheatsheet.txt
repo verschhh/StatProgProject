@@ -116,3 +116,40 @@ Availability: Availability is generally lower in high-demand neighborhoods, with
 Review Patterns: Higher review frequency is associated with specific neighborhoods and room types, indicating higher demand.
 Minimum Nights Requirement: Entire homes have higher minimum night requirements than private rooms, which might be aimed at reducing turnover.
 These insights help understand trends and inform further decisions on price setting, neighborhood analysis, and predicting demand. Let me know if you'd like to dive deeper into any specific area or analysis!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Personal EDA: 
+One thing that could be explored is the repartition of room type by region to see if it teaches us anything new. After seeing the encouraging result (cf Room Type by neighborhood_group.png) I tried to check with the neighborhood but the result were too messy (Room Type by Neighborhood.png).
+----
+command used:
+ggplot(data, aes(x = neighbourhood_group, y = room_type, fill = room_type)) + geom_bar(stat = "identity", position = "dodge") + labs(title = "Room Type by Neighborhood group", x = "Neighborhood Group", y = "Room Type") + theme_minimal()
+
+ggplot(data, aes(x = neighbourhood, y = room_type, fill = room_type)) + geom_bar(stat = "identity", position = "dodge") + labs(title = "Room Type by Neighborhood", x = "Neighborhood" , y = "Room Type") + theme_minimal()
+----
+
+Now i am trying to see if the price gives us any indication on the neighborhood group (higher price *should* be in the center.
+As expected the central region price are way higher than the other but the East region price is also significantly higher than the other even it's still lower than the central region (cf Price by Neighborhood group.png)
+
+----
+command used:
+ggplot(data, aes(x = neighbourhood_group, y = price, fill = room_type)) + geom_bar(stat = "identity", position = "dodge") + labs(title = "Price by Neighborhood group", x = "Neighborhood group" , y = "Price") + theme_minimal()
+----
+
+With what i learned so far, i guess the next step should be to try and check the minimum stay by the price. But it wasn't as conclusive as i hoped it to be (Minimum stay by price.png)
